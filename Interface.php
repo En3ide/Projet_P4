@@ -141,24 +141,10 @@
             </tr>
         </tbody>
         </table>
+        <button onclick="clear();" id="clear">Clear Grille</button>
         <script>
             current_player = 1;
 
-            /*document.getElementById("grille").addEventListener("click", function(event) {
-                if (event.target.tagName === "TR") {  
-                    let cell = event.target;
-                    let columnIndex = cell.cellIndex;
-
-                    document.getElementById("info").textContent = `Colonne cliquée : ${columnIndex}`;
-                    
-                    addToken(current_player, columnIndex);
-                    
-                    //document.querySelectorAll("tr").forEach(tr => tr.classList.remove("selected"));
-                    //row.classList.add("selected");
-                    
-                    }
-            });
-            */
             document.getElementById("grille").addEventListener("click", function(event) {
                 let cell = event.target.closest("td");
                 if (!cell) return;
@@ -215,8 +201,21 @@
             function reverse_player() {
                 return current_player === 1 ? 2 : 1;
             }
+
+            
+
+            function clear() {
+                fetch("./supp_fichier.php", {
+                        method: "POST"
+                    })
+                    .then(response => response.text())
+                    .then(data => console.log("Réponse de l'API:", data))
+                    .catch(error => console.error("Erreur :", error));
+            }
+
+            document.getElementById("clear").addEventListener("click", function(event) {clear();window.location.replace(window.location.href);
+            });
         </script>
-        <p id="info">Cliquez sur une ligne pour afficher son index.</p>
         <script src="" async defer></script>
     </body>
 </html>
