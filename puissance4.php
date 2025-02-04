@@ -17,7 +17,7 @@ if (isset($data['player']) && isset($data['colonne'])) {
     $reponse = [
         "status" => "success", 
         "player" => $player, 
-        "cellule" => $cellule
+        "cellule" => [$cellule]
     ];
 
     file_put_contents('./grille.json', json_encode($grille));
@@ -27,11 +27,11 @@ if (isset($data['player']) && isset($data['colonne'])) {
     echo json_encode(["status" => "error", "message" => "Données invalides"]);
 }
 
-function put_cellule($grille, $colonne, $player) {
+function put_cellule(&$grille, $colonne, $player) {
     for ($i = 9; $i >= 0; $i--) {
         if ($grille[$i][$colonne] == 0) {
             $grille[$i][$colonne] = $player;
-            return "$colonne-$i";
+            return $i."-".$colonne;
         }
     }
     return null;

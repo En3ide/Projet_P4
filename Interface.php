@@ -144,19 +144,30 @@
         <script>
             current_player = 1;
 
-            document.getElementById("grille").addEventListener("click", function(event) {
-                if (event.target.tagName === "TD") {  
+            /*document.getElementById("grille").addEventListener("click", function(event) {
+                if (event.target.tagName === "TR") {  
                     let cell = event.target;
                     let columnIndex = cell.cellIndex;
 
                     document.getElementById("info").textContent = `Colonne cliquée : ${columnIndex}`;
                     
                     addToken(current_player, columnIndex);
-                    /*
-                    document.querySelectorAll("tr").forEach(tr => tr.classList.remove("selected"));
-                    row.classList.add("selected");
-                    */
+                    
+                    //document.querySelectorAll("tr").forEach(tr => tr.classList.remove("selected"));
+                    //row.classList.add("selected");
+                    
                     }
+            });
+            */
+            document.getElementById("grille").addEventListener("click", function(event) {
+                let cell = event.target.closest("td");
+                if (!cell) return;
+                
+                let row = cell.parentElement;
+                let rowIndex = row.rowIndex;
+
+                console.log("Colonne cliquée :", rowIndex);
+                addToken(current_player, rowIndex);
             });
 
             
@@ -171,14 +182,11 @@
                 })
                 .then(response => response.json())
                 .then(
-                    data => {
-                        console.log("Réponse de l'API :", data);
-                        if(data.status === "success") {
-                            update_board(data);
-                            switch_player();
-                        } else {
-                            console.error("Erreur :", data.message);
-                        }
+                    data => {console.log("Réponse de l'API :", data);
+                    if(data["cellule"] != [0] || data["cellule"][0] != null) {.6
+                        update_board(data);
+                        switch_player();
+                    }
                 })
                 .catch(error => console.error("Erreur :", error));
             }
@@ -186,7 +194,12 @@
             function update_board(data) {
                 for (let cell of data.cellule) {
                     let elt = document.getElementById(cell)
-                    elt.classList.remove("CJ" + reverse_player());
+                    
+                    /*
+                    if(elt.classList.contains("CJ" + reverse_player()))
+                        elt.classList.remove("CJ" + reverse_player());
+                    */
+                    console.log(elt);
                     elt.classList.add("CJ" + data.player);
                     console.log("cellule", cell);
                     
