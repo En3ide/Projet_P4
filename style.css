@@ -7,14 +7,23 @@
     --color-j2: rgba(255, 0, 0, 0.5);
     --color-empty: rgba(0, 0, 0, 1);
     --color-hover: rgba(255, 255, 0, 1);
-    --color-grille: rgba(0, 0, 255, 0.5);
+    --color-grille: rgb(0, 0, 100);
+    --color-tbody: var(--color-grille);
+    --color-body: var(--color-j1);
     --color-colonne-hover: rgba(255, 255, 0, 0.5);
 }
+
+
+/*
+tr.selected {
+    background-color: lightblue;
+}*/
 
 body {
     font-family: Arial, sans-serif;
     display: flex;
     flex-direction: column;
+    background-color: var(--color-body);
 }
 
 table {
@@ -26,8 +35,9 @@ table {
 tbody {
     display: flex;
     flex-direction: row;
-    background-color: blue;
+    background-color: var(--color-tbody);
     padding: 1em;
+    border-radius: 10px 10px 10px 10px;
 }
 
 th,
@@ -70,6 +80,7 @@ tr {
     width: 30px;
     height: 30px;
     border-radius: 50%;
+    margin: 3px;
 }
 
 .cellule-ronde:hover {
