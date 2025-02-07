@@ -188,12 +188,11 @@
                         if(data["aligne_colonne"] >= min || data["aligne_ligne"] >= min || data["aligne_diagonale1"] >= min || data["aligne_diagonale2"] >= min) {
                             document.getElementById("annonce").style.display = "block";
                             document.getElementById("annonce").innerHTML = "Joueur " + data["player"] + " a gagné !";
-                            document.getElementById("grille").addEventListener("click", function(event) {
-                                event.preventDefault();
-                            });
+                            document.getElementById("grille").removeEventListener("click", send_input);
                         }
                         update_board(data);
                         switch_player();
+                        
                     }
                 })
                 .catch(error => console.error("Erreur :", error));
