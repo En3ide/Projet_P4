@@ -13,6 +13,20 @@
     --color-colonne-hover: rgba(255, 255, 0, 0.5);
 }
 
+#gagnant {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 20px 40px;
+    border-radius: 10px;
+    font-size: 2rem;
+    z-index: 9999;
+    text-align: center;
+}
+
 
 /*
 tr.selected {

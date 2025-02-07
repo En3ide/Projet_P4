@@ -16,6 +16,20 @@
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
+        <h1 id="annonce" style="
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 20px 40px;
+            border-radius: 10px;
+            font-size: 2rem;
+            z-index: 9999;
+            text-align: center;"
+            >Joueur 1</h1>
         <h2 style="text-align: center;">Puissance 4</h2>
         <table id="grille" summary="Grille du puissance 4">
         <tbody>
@@ -144,8 +158,9 @@
         <button onclick="clear();" id="clear">Clear Grille</button>
         <script>
             current_player = 1;
+            min = 4;
 
-            document.getElementById("grille").addEventListener("click", function(event) {
+            document.getElementById("grille").addEventListener("click", function send_input(event) {
                 let cell = event.target.closest("td");
                 if (!cell) return;
                 
@@ -169,7 +184,14 @@
                 .then(response => response.json())
                 .then(
                     data => {console.log("Réponse de l'API :", data);
-                    if(data["cellule"] != [0] || data["cellule"][0] != null) {.6
+                    if(data["cellule"] != [0] || data["cellule"][0] != null) {
+                        if(data["aligne_colonne"] >= min || data["aligne_ligne"] >= min || data["aligne_diagonale1"] >= min || data["aligne_diagonale2"] >= min) {
+                            document.getElementById("annonce").style.display = "block";
+                            document.getElementById("annonce").innerHTML = "Joueur " + data["player"] + " a gagné !";
+                            document.getElementById("grille").addEventListener("click", function(event) {
+                                event.preventDefault();
+                            });
+                        }
                         update_board(data);
                         switch_player();
                     }
@@ -213,8 +235,14 @@
                     .catch(error => console.error("Erreur :", error));
             }
 
-            document.getElementById("clear").addEventListener("click", function(event) {clear();window.location.replace(window.location.href);
+            document.getElementById("clear").addEventListener("click", function(event) {
+                clear();
+                window.location.replace(window.location.href);
             });
+
+            window.onload = function() {
+                clear();
+            };
         </script>
         <script src="" async defer></script>
     </body>
