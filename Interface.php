@@ -155,7 +155,12 @@
             </tr>
         </tbody>
         </table>
-        <button onclick="clear();" id="clear">Clear Grille</button>
+        <div style="display: flex; justify-content: center;">
+            <button onclick="" id="make_bdd">Add BDD</button>
+            <p id="id_player">id_player : </p>
+            <button onclick="" id="make_bdd">sert a rien</button>
+            <button onclick="clear();" id="clear">Clear Grille</button>
+        </div>
         <script>
             current_player = 1;
             min = 4;
