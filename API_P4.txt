@@ -1,3 +1,53 @@
+create_game.php
+
+Envoie à l'API :
+{
+    "joueur" : "id",
+    "login" : "login",
+    "password" : "",
+    "" : "",
+}
+
+Retour de l'API
+{
+    "lobby_id" : "id",
+    ""
+}
+
+update_game.php
+{
+    "action_type" : "play",
+    "id_player" : "",
+    "colonne" : "Integer"
+}
+
+retour :
+
+{
+    "status" : "success",
+    "updated_case" : [x,y],
+    "message" : "msg"
+}
+
+Si pas déplacement pas permis : 
+{
+    "status" : "success",
+    "message" : "deplacement impossible"
+}
+
+sinon :
+{
+    "action_type" : "update"
+}
+
+retour :
+{
+    "status" : "success",
+    "updated_case" : [x,y],
+    "message" : "msg"
+}
+
+
 Le client après avoir affectuer une action envoie son id de session suivie de la colonne où le joueur souhaite rajouter un token tel que :
 
 function addToken(player, column) {

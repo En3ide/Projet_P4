@@ -42,9 +42,9 @@
                 <td class="cellule-ronde" id="5-0"></td>
                 <td class="cellule-ronde" id="6-0"></td>
                 <td class="cellule-ronde" id="7-0"></td>
-                <td class="cellule-ronde" id="8-0"></td>
-                <td class="cellule-ronde" id="9-0"></td>
-            </tr>
+                <!--<td class="cellule-ronde" id="8-0"></td>
+                <td class="cellule-ronde" id="9-0"></td>--->
+            </tr><!-- 1 -->
             <tr>
                 <td class="cellule-ronde" id="0-1"></td>
                 <td class="cellule-ronde" id="1-1"></td>
@@ -54,9 +54,9 @@
                 <td class="cellule-ronde" id="5-1"></td>
                 <td class="cellule-ronde" id="6-1"></td>
                 <td class="cellule-ronde" id="7-1"></td>
-                <td class="cellule-ronde" id="8-1"></td>
-                <td class="cellule-ronde" id="9-1"></td>
-            </tr>
+                <!--<td class="cellule-ronde" id="8-1"></td>
+                <td class="cellule-ronde" id="9-1"></td>-->
+            </tr><!-- 2 -->
             <tr>
                 <td class="cellule-ronde" id="0-2"></td>
                 <td class="cellule-ronde" id="1-2"></td>
@@ -66,9 +66,9 @@
                 <td class="cellule-ronde" id="5-2"></td>
                 <td class="cellule-ronde" id="6-2"></td>
                 <td class="cellule-ronde" id="7-2"></td>
-                <td class="cellule-ronde" id="8-2"></td>
-                <td class="cellule-ronde" id="9-2"></td>
-            </tr>
+                <!--<td class="cellule-ronde" id="8-2"></td>
+                <td class="cellule-ronde" id="9-2"></td>-->
+            </tr><!-- 3 -->
             <tr>
                 <td class="cellule-ronde" id="0-3"></td>
                 <td class="cellule-ronde" id="1-3"></td>
@@ -78,9 +78,9 @@
                 <td class="cellule-ronde" id="5-3"></td>
                 <td class="cellule-ronde" id="6-3"></td>
                 <td class="cellule-ronde" id="7-3"></td>
-                <td class="cellule-ronde" id="8-3"></td>
-                <td class="cellule-ronde" id="9-3"></td>
-            </tr>
+                <!--<td class="cellule-ronde" id="8-3"></td>
+                <td class="cellule-ronde" id="9-3"></td>-->
+            </tr><!-- 4 -->
             <tr>
                 <td class="cellule-ronde" id="0-4"></td>
                 <td class="cellule-ronde" id="1-4"></td>
@@ -90,9 +90,9 @@
                 <td class="cellule-ronde" id="5-4"></td>
                 <td class="cellule-ronde" id="6-4"></td>
                 <td class="cellule-ronde" id="7-4"></td>
-                <td class="cellule-ronde" id="8-4"></td>
-                <td class="cellule-ronde" id="9-4"></td>
-            </tr>
+                <!--<td class="cellule-ronde" id="8-4"></td>
+                <td class="cellule-ronde" id="9-4"></td>-->
+            </tr><!-- 5 -->
             <tr>
                 <td class="cellule-ronde" id="0-5"></td>
                 <td class="cellule-ronde" id="1-5"></td>
@@ -102,9 +102,9 @@
                 <td class="cellule-ronde" id="5-5"></td>
                 <td class="cellule-ronde" id="6-5"></td>
                 <td class="cellule-ronde" id="7-5"></td>
-                <td class="cellule-ronde" id="8-5"></td>
-                <td class="cellule-ronde" id="9-5"></td>
-            </tr>
+                <!--<td class="cellule-ronde" id="8-5"></td>
+                <td class="cellule-ronde" id="9-5"></td>-->
+            </tr><!-- 6 -->
             <tr>
                 <td class="cellule-ronde" id="0-6"></td>
                 <td class="cellule-ronde" id="1-6"></td>
@@ -114,10 +114,10 @@
                 <td class="cellule-ronde" id="5-6"></td>
                 <td class="cellule-ronde" id="6-6"></td>
                 <td class="cellule-ronde" id="7-6"></td>
-                <td class="cellule-ronde" id="8-6"></td>
-                <td class="cellule-ronde" id="9-6"></td>
-            </tr>
-            <tr>
+                <!--<td class="cellule-ronde" id="8-6"></td>
+                <td class="cellule-ronde" id="9-6"></td>-->
+            </tr><!-- 7 -->
+            <!--<tr>
                 <td class="cellule-ronde" id="0-7"></td>
                 <td class="cellule-ronde" id="1-7"></td>
                 <td class="cellule-ronde" id="2-7"></td>
@@ -128,8 +128,8 @@
                 <td class="cellule-ronde" id="7-7"></td>
                 <td class="cellule-ronde" id="8-7"></td>
                 <td class="cellule-ronde" id="9-7"></td>
-            </tr>
-            <tr>
+            </tr> 8 -->
+            <!--<tr>
                 <td class="cellule-ronde" id="0-8"></td>
                 <td class="cellule-ronde" id="1-8"></td>
                 <td class="cellule-ronde" id="2-8"></td>
@@ -140,8 +140,8 @@
                 <td class="cellule-ronde" id="7-8"></td>
                 <td class="cellule-ronde" id="8-8"></td>
                 <td class="cellule-ronde" id="9-8"></td>
-            </tr>
-            <tr>
+            </tr> 9 -->
+            <!--<tr>
                 <td class="cellule-ronde" id="0-9"></td>
                 <td class="cellule-ronde" id="1-9"></td>
                 <td class="cellule-ronde" id="2-9"></td>
@@ -152,7 +152,7 @@
                 <td class="cellule-ronde" id="7-9"></td>
                 <td class="cellule-ronde" id="8-9"></td>
                 <td class="cellule-ronde" id="9-9"></td>
-            </tr>
+            </tr> 10 -->
         </tbody>
         </table>
         <div style="display: flex; justify-content: center;">
