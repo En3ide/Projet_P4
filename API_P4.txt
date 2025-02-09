@@ -1,104 +1,100 @@
-create_game.php
+# create_game.php :
 
-Envoie à l'API :
+**Entrée** :
+```
 {
-    "joueur" : "id",
-    "login" : "login",
-    "password" : "",
-    "" : "",
+    "player_1" : "String", // nom/identifiant du joueur 1
+    "player_2" : "String" // nom/identifiant du joueur 2
 }
+```
 
-Retour de l'API
-{
-    "lobby_id" : "id",
-    ""
-}
-
-update_game.php
-{
-    "action_type" : "play",
-    "id_player" : "",
-    "colonne" : "Integer"
-}
-
-retour :
-
+**Réponse positive** :
+```
 {
     "status" : "success",
-    "updated_case" : [x,y],
-    "message" : "msg"
+    "id_game" : Integer, // ID de la partie créée
+    "message" : "La partie a été créée"
 }
+```
 
-Si pas déplacement pas permis : 
+
+# delete_game.php
+
+**Entrée** :
+```
 {
-    "status" : "success",
-    "message" : "deplacement impossible"
+    "game_id" : Integer, // ID unique de la partie à supprimer
 }
+```
 
-sinon :
+**Réponse positive** :
+```
 {
-    "action_type" : "update"
+    "status": "success",
+    "message": "La partie a été supprimé"
 }
+```
 
-retour :
+**Réponse négative** :
+```
 {
-    "status" : "success",
-    "updated_case" : [x,y],
-    "message" : "msg"
+    "status": "error",
+    "message": "Impossible de supprimer la partie"
 }
+```
 
 
-Le client après avoir affectuer une action envoie son id de session suivie de la colonne où le joueur souhaite rajouter un token tel que :
+# update_game.php :
 
-function addToken(player, column) {
-                fetch('./puissance4.php', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ "player": current_player, "colonne": column })
-                })
-                .then(response => response.json())
-                .then(
-                    data => {console.log("Réponse de l'API :", data);
-                    if(data["cellule"] != [0] || data["cellule"][0] != null) {.6
-                        update_board(data);
-                    }
-                })
-                .catch(error => console.error("Erreur :", error));
-            }
-
-
-Coté serveur nous auront, on renverra la status de la requete | l'id du joueur qui à effectuer l'action | la posission du token à modifier :
-
-if (isset($data['player']) && isset($data['colonne'])) {
-    $player = $data['player'];
-    $colonne = $data['colonne'];
-
-    $grille = lireGrille('./grille.json');
-    if ($grille === null) {
-        creatfile('./grille.json');
-        $grille = lireGrille('./grille.json');
-    }
-
-    $cellules = put_cellule($grille, $colonne, $player);
-
-    if($cellules != null) {
-        $reponse = [
-            "status" => "success", 
-            "player" => $player, 
-            "cellule" => [$cellules]
-        ];
-
-        file_put_contents('./grille.json', json_encode($grille));
-
-        echo json_encode($reponse);
-    }else {
-        json_encode(["status" => "error", "message" => "Mouvement impossible"]);
-    }
-} else {
-    echo json_encode(["status" => "error", "message" => "Données invalides"]);
+**Entrée** :
+```
+{
+    "game_id" : Integer, // ID de la partie à mettre à jour
 }
+```
+
+**Réponse positive** :
+```
+{
+    "status" : "success", 
+    "turn_player" : Integer, // Identifiant du joueur dont c'est le tour de jouer
+    "coord" : [Integer, Integer] // Coordonnées du dernier coup joué (colonne, ligne)
+    "winner": Integer | null  // ID du gagnant ou null si aucun gagnant
+    "message": "Le jeu a été mis à jour"
+}
+```
+
+**Réponse négative** :
+```
+{
+    "status": "error",
+    "message": "La partie demandée n'existe pas"
+}
+```
 
 
+# play_game.php:
 
+**Entrée** :
+```
+{
+    "player_id": "String", // Identifiant du joueur qui joue / demande à jouer
+    "colonne" : Integer, // Colonne où le joueur joue son pion
+    "game_id" : Integer // ID de la partie en cours
+}
+```
+**Réponse positive** :
+```
+{
+    "status" : "success", 
+    "message" : "Le coup a été joué"
+}
+```
+
+**Réponse négative** :
+```
+{
+    "status" : "error",
+    "message" : "La colonne sélectionnée est pleine"
+}
+```
