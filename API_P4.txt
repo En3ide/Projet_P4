@@ -17,6 +17,14 @@
 }
 ```
 
+**Réponse négative** :
+```
+{
+    "status" : "error",
+    "message" : "Impossible de créer la partie"
+}
+```
+
 
 # delete_game.php
 
