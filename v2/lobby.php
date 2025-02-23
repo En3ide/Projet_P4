@@ -81,7 +81,6 @@ echo '
                 echo '<input type="color" name="P4_player1_color" value="'.$p1color.'"/>';
                 echo '<input type="color" name="P4_player2_color" value="'.$p2color.'"/>';
             ?>
-            <label for="P4_player_role">Role du joueur :</label>
             <select name="P4_player_role" id="P4_player_role">
                 <option value="human" <?php echo $P4_player_role == 'human' ? 'selected' : ''; ?>>Human</option>
                 <option value="AI" <?php echo $P4_player_role == 'AI' ? 'selected' : ''; ?>>AI</option>

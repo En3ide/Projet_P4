@@ -23,12 +23,13 @@ body {
 }
 
 #list_party {
+    max-height: 80vh;
+    overflow: scroll;
     display: flex;
     flex-direction: column;
     background-color: var(--bg-color-secondary);
     color: var(--font-color-secondary);
     padding: 1em;
-    scroll-behavior: smooth;
 }
 
 #adresse_server {
@@ -44,6 +45,7 @@ body {
     border-radius: 10px;
     padding-left: 0.5em;
     padding-right: 0.5em;
+    height: 5px;
 }
 
 .party_join {

@@ -35,6 +35,72 @@ $response = [
             "player2_role" => "human",
             "player2_path" => "~sam_gamegie/SAE/",
             "winner" => 1
+        ],
+        [
+            "game_id" => 122,
+            "status" => "over",
+            "player1" => "Jean",
+            "player1_role" => "human",
+            "player1_path" => "~jean_valjean/",
+            "player2" => "Sam",
+            "player2_role" => "human",
+            "player2_path" => "~sam_gamegie/SAE/",
+            "winner" => 1
+        ],
+        [
+            "game_id" => 122,
+            "status" => "over",
+            "player1" => "Jean",
+            "player1_role" => "human",
+            "player1_path" => "~jean_valjean/",
+            "player2" => "Sam",
+            "player2_role" => "human",
+            "player2_path" => "~sam_gamegie/SAE/",
+            "winner" => 1
+        ],
+        [
+            "game_id" => 122,
+            "status" => "over",
+            "player1" => "Jean",
+            "player1_role" => "human",
+            "player1_path" => "~jean_valjean/",
+            "player2" => "Sam",
+            "player2_role" => "human",
+            "player2_path" => "~sam_gamegie/SAE/",
+            "winner" => 1
+        ],
+        [
+            "game_id" => 122,
+            "status" => "over",
+            "player1" => "Jean",
+            "player1_role" => "human",
+            "player1_path" => "~jean_valjean/",
+            "player2" => "Sam",
+            "player2_role" => "human",
+            "player2_path" => "~sam_gamegie/SAE/",
+            "winner" => 1
+        ],
+        [
+            "game_id" => 122,
+            "status" => "over",
+            "player1" => "Jean",
+            "player1_role" => "human",
+            "player1_path" => "~jean_valjean/",
+            "player2" => "Sam",
+            "player2_role" => "human",
+            "player2_path" => "~sam_gamegie/SAE/",
+            "winner" => 1
+        ],
+        [
+            "game_id" => 122,
+            "status" => "over",
+            "player1" => "Jean",
+            "player1_role" => "human",
+            "player1_path" => "~jean_valjean/",
+            "player2" => "Sam",
+            "player2_role" => "human",
+            "player2_path" => "~sam_gamegie/SAE/",
+            "winner" => 1
         ]
     ]
 ];
