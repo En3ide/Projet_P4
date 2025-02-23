@@ -85,7 +85,7 @@ echo '
                 <option value="human" <?php echo $P4_player_role == 'human' ? 'selected' : ''; ?>>Human</option>
                 <option value="AI" <?php echo $P4_player_role == 'AI' ? 'selected' : ''; ?>>AI</option>
             </select>
-            <input type="text" name="P4_player_name" placeholder="Nom du joueur" value="<?php echo $player_name; ?>"/>
+            <input type="text" id="P4_player_name" name="P4_player_name" placeholder="Nom du joueur" value="<?php echo $player_name; ?>"/>
             <input type="submit" value="Valider"/>
             </form>
         </nav>
@@ -106,12 +106,16 @@ echo '
             if ($adresse.value.trim() !== "") {
                 getparty($adresse.value.trim());
             } else {
-                let currentUrl = window.location.href;
-                let baseUrl = currentUrl.replace(/\/[^\/]*$/, ''); //retirer la dernière partie de l'URL
-                console.log(baseUrl);
-                getparty(baseUrl);
+                getparty(baseUrl());
             }
         }, 1000);
+
+        function baseUrl() {
+            let currentUrl = window.location.href;
+            let baseUrl = currentUrl.replace(/\/[^\/]*$/, ''); //retirer la dernière partie de l'URL
+            //console.log(baseUrl);
+            return baseUrl;
+        }
 
         function getparty($adresse) {
             fetch($adresse + "/list_games.php", {
@@ -133,17 +137,28 @@ echo '
         }
 
         function fill_list_party(response, $addr) {
+            $page_party = './requete_test.php';//'./Interface.php';
             $list_party.innerHTML = "";
             response["games"].forEach(game => {
                 $list_party.innerHTML +=
-                    '<form class="party" method="POST" action="./Interface.php"><input type="submit" class="party_join" name="party_join" value="Rejoindre" ' +
-                    (game["status"] === "over" ? 'disabled' : '') +'"/><hr/><input class="party_status" value="' + 
-                    game["status"] + '" disabled/><input class="party_id" name="party_id" value="' +
-                    game["game_id"] +'" disabled/>'+
-                    '<input class="party_path" name="game_path" value="'+game["player1_path"]+'" disabled/>'+
-                    '<input class="hidden" name="addr" value="'+$addr+'" disabled/>'+
-                    '<input class="hidden" name="addr" value="'+ (document.querySelector('select[name="P4_player_role"]').value) +'" disabled/>'+
-                    +'</form>';
+                    '<form class="party" method="POST" action="'+ $page_party +'">'+
+                    '<input type="submit" class="party_join" name="party_join" value="Rejoindre" '+
+                    (game["status"] === "over" ? 'readonly' : '') +'"/><hr/>'+
+                    '<input class="party_status" value="'+
+                    game["status"] + '" readonly/>'+
+                    '<input class="party_id" name="game_id" value="'+
+                    game["game_id"]+'" readonly/>'+
+                    '<input class="party_path" name="game_path" value="'+
+                    game["player1_path"]+'" readonly/>'+
+                    '<input class="hidden" name="addr" value="'+
+                    $addr+'" readonly/>'+
+                    '<input class="hidden" name="player2" value="'+
+                    (document.getElementById("P4_player_name").value)+'" readonly/>'+
+                    '<input class="hidden" name="player2_role" value="'+
+                    (document.querySelector('select[name="P4_player_role"]').value) +'" readonly/>'+
+                    '<input class="hidden" name="player2_path" value="'+
+                    baseUrl() +'" readonly/>'+
+                    '</form>';
             });
         }
     </script>
