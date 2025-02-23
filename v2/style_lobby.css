@@ -71,28 +71,34 @@ body {
 }
 
 .party_status {
-    min-width: 2em;
+    min-width: 4em;
 }
 
 .party_id {
-    min-width: 2em;
+    min-width: 4em;
 }
 
+.party_player1:read-only {
+    min-width: 5em;
+}
+
+.party_player1:read-only,
 .party_id:read-only,
 .party_status:read-only,
 .party_path:read-only {
     background-color: #e0e0e000;
-    /* Couleur de fond grise */
     color: var(--font-color-secondary);
-    /* Couleur de texte grise */
     border: 2px solid #cccccc00;
-    /* Bordure grise */
     cursor: crosshair;
-    /* Curseur "non autorisé" */
+    width: auto;
+    max-width: fit-content;
+    height: auto;
+    max-height: fit-content;
 }
 
 .hidden {
     display: none;
+    width: 0px;
 }
 
 

@@ -41,54 +41,54 @@ echo '
         <link rel="stylesheet" href="./style_lobby.css">
         <!----<script src="./lobby.js"></script>---->
         </head>
-    <body>
-        <nav>
-        <form style="display:flex; flex-direction:column; align-items:center; justify-content:center;" action="lobby.php" method="post">
-            <?php
-                // color player 1
-                if (isset($_POST["P4_player1_color"])) {
-                    $p1color = $_POST["P4_player1_color"];
-                } else if (isset($_COOKIE["P4_player1_color"])) {
-                    $p1color = $_COOKIE["P4_player1_color"];
-                } else {
-                    $p1color = '#00FFFF';
-                }
-                // color player 2
-                if (isset($_POST["P4_player2_color"])) {
-                    $p2color = $_POST["P4_player2_color"];
-                } else if (isset($_COOKIE["P4_player2_color"])) {
-                    $p2color = $_COOKIE["P4_player2_color"];
-                } else {
-                    $p2color = '#FF0000';
-                }
-                // pseudo
-                if (isset($_POST["P4_player_name"])) {
-                    $player_name = $_POST["P4_player_name"];
-                } else if (isset($_COOKIE["P4_player_name"])) {
-                    $player_name = $_COOKIE["P4_player_name"];
-                } else {
-                    $player_name = '#FF0000';
-                }
-                // type
-                if (isset($_POST["P4_player_role"])) {
-                    $P4_player_role = $_POST["P4_player_role"];
-                } else if (isset($_COOKIE["P4_player_role"])) {
-                    $P4_player_role = $_COOKIE["P4_player_role"];
-                } else {
-                    $P4_player_role = 'human';
-                }
+<body>
+    <nav>
+    <form style="display:flex; flex-direction:column; align-items:center; justify-content:center;" action="lobby.php" method="post">
+        <?php
+            // color player 1
+            if (isset($_POST["P4_player1_color"])) {
+                $p1color = $_POST["P4_player1_color"];
+            } else if (isset($_COOKIE["P4_player1_color"])) {
+                $p1color = $_COOKIE["P4_player1_color"];
+            } else {
+                $p1color = '#00FFFF';
+            }
+            // color player 2
+            if (isset($_POST["P4_player2_color"])) {
+                $p2color = $_POST["P4_player2_color"];
+            } else if (isset($_COOKIE["P4_player2_color"])) {
+                $p2color = $_COOKIE["P4_player2_color"];
+            } else {
+                $p2color = '#FF0000';
+            }
+            // pseudo
+            if (isset($_POST["P4_player_name"])) {
+                $player_name = $_POST["P4_player_name"];
+            } else if (isset($_COOKIE["P4_player_name"])) {
+                $player_name = $_COOKIE["P4_player_name"];
+            } else {
+                $player_name = '#FF0000';
+            }
+            // type
+            if (isset($_POST["P4_player_role"])) {
+                $P4_player_role = $_POST["P4_player_role"];
+            } else if (isset($_COOKIE["P4_player_role"])) {
+                $P4_player_role = $_COOKIE["P4_player_role"];
+            } else {
+                $P4_player_role = 'human';
+            }
 
-                echo '<input type="color" name="P4_player1_color" value="'.$p1color.'"/>';
-                echo '<input type="color" name="P4_player2_color" value="'.$p2color.'"/>';
-            ?>
-            <select name="P4_player_role" id="P4_player_role">
-                <option value="human" <?php echo $P4_player_role == 'human' ? 'selected' : ''; ?>>Human</option>
-                <option value="AI" <?php echo $P4_player_role == 'AI' ? 'selected' : ''; ?>>AI</option>
-            </select>
-            <input type="text" id="P4_player_name" name="P4_player_name" placeholder="Nom du joueur" value="<?php echo $player_name; ?>"/>
-            <input type="submit" value="Valider"/>
-            </form>
-        </nav>
+            echo '<input id="P4_player1_color" type="color" name="P4_player1_color" value="'.$p1color.'"/>';
+            echo '<input id="P4_player2_color" type="color" name="P4_player2_color" value="'.$p2color.'"/>';
+        ?>
+        <select name="P4_player_role" id="P4_player_role">
+            <option value="human" <?php echo $P4_player_role == 'human' ? 'selected' : ''; ?>>Human</option>
+            <option value="AI" <?php echo $P4_player_role == 'AI' ? 'selected' : ''; ?>>AI</option>
+        </select>
+        <input type="text" id="P4_player_name" name="P4_player_name" placeholder="Nom du joueur" value="<?php echo $player_name; ?>"/>
+        <input type="submit" value="Valider"/>
+        </form>
+    </nav>
     <div class="container">
         <h2>Puissance 4</h2>
         <div class="div_lobby">
@@ -97,7 +97,7 @@ echo '
             </div>
         </div>
     </div>
-    </body>
+</body>
     <script>
         $adresse = document.getElementById("adresse_server");
         $list_party = document.getElementById("list_party");
@@ -148,16 +148,22 @@ echo '
                     game["status"] + '" readonly/>'+
                     '<input class="party_id" name="game_id" value="'+
                     game["game_id"]+'" readonly/>'+
+                    '<input class="party_player1" name="player1" value="'+
+                    game["player1"]+'" readonly/>'+
                     '<input class="party_path" name="game_path" value="'+
                     game["player1_path"]+'" readonly/>'+
                     '<input class="hidden" name="addr" value="'+
                     $addr+'" readonly/>'+
                     '<input class="hidden" name="player2" value="'+
-                    (document.getElementById("P4_player_name").value)+'" readonly/>'+
+                    (document.getElementById("P4_player_name").value.trim())+'" readonly/>'+
                     '<input class="hidden" name="player2_role" value="'+
-                    (document.querySelector('select[name="P4_player_role"]').value) +'" readonly/>'+
+                    (document.querySelector('select[name="P4_player_role"]').value.trim()) +'" readonly/>'+
                     '<input class="hidden" name="player2_path" value="'+
                     baseUrl() +'" readonly/>'+
+                    '<input class="hidden" name="P4_player1_color" value="'+
+                    (document.getElementById("P4_player1_color").value) +'" readonly/>'+
+                    '<input class="hidden" name="P4_player2_color" value="'+
+                    (document.getElementById("P4_player2_color").value) +'" readonly/>'+
                     '</form>';
             });
         }
