@@ -1,0 +1,122 @@
+:root {
+    --main-bg-color: #f3f3f3;
+    --main-text-color: #333;
+    --main-link-color: #007bff;
+    --main-link-hover-color: #0056b3;
+    --color-j1: rgba(0, 0, 255, 0.5);
+    --color-j2: rgba(255, 0, 0, 0.5);
+    --color-empty: rgba(0, 0, 0, 1);
+    --color-hover: rgba(255, 255, 0, 1);
+    --color-grille: rgb(0, 0, 100);
+    --color-tbody: var(--color-grille);
+    --color-body: var(--color-j1);
+    --color-colonne-hover: rgba(255, 255, 0, 0.5);
+}
+
+#gagnant {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 20px 40px;
+    border-radius: 10px;
+    font-size: 2rem;
+    z-index: 9999;
+    text-align: center;
+}
+
+
+/*
+tr.selected {
+    background-color: lightblue;
+}*/
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-body);
+}
+
+table {
+    align-self: center;
+    /*border-collapse: collapse;*/
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+tbody {
+    display: flex;
+    flex-direction: row;
+    background-color: var(--color-tbody);
+    padding: 1em;
+    border-radius: 10px 10px 10px 10px;
+}
+
+th,
+td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+tr {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+}
+
+
+/*
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}*/
+
+tr:hover {
+    background-color: var(--color-colonne-hover);
+}
+
+tr {
+    background-color: var(--color-grille);
+}
+
+
+/* Style pour une cellule ronde rouge */
+
+.cellule-ronde {
+    background-color: var(--color-empty);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin: 3px;
+}
+
+.cellule-ronde:hover {
+    background-color: var(--color-hover);
+    color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+.CJ1 {
+    background-color: var(--color-j1);
+    color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+.CJ2 {
+    background-color: var(--color-j2);
+    color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}

@@ -37,7 +37,7 @@ if (isset($data['player']) && isset($data['colonne'])) {
 
 function put_cellule(&$grille, $colonne, $player)
 {
-    for ($i = sizeof($grille[0]); $i >= 0; $i--) {
+    for ($i = sizeof($grille[0])-1; $i >= 0; $i--) {
         if ($grille[$i][$colonne] == 0) {
             $grille[$i][$colonne] = $player;
 
@@ -178,6 +178,6 @@ function lireGrille($fichier)
 
 function creatfile($fichier)
 {
-    $grille = array_fill(0, 6, array_fill(0, 7, 0));
+    $grille = array_fill(0, 6, array_fill(0, 6, 0));
     file_put_contents($fichier, json_encode($grille));
 }

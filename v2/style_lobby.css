@@ -1,0 +1,153 @@
+/* Application des styles globaux */
+
+:root {}
+
+html {
+    font-family: var(--font-fam);
+}
+
+body {
+    background-color: var(--bg-color);
+    margin: 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100vh;
+}
+
+
+/** Panel des parties **/
+
+.div_lobby {
+    flex-basis: 80%;
+}
+
+#list_party {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--bg-color-secondary);
+    color: var(--font-color-secondary);
+    padding: 1em;
+    scroll-behavior: smooth;
+}
+
+#adresse_server {
+    width: 50%;
+}
+
+.party {
+    display: flex;
+    flex-direction: row;
+    background-color: var(--bg-color-party);
+    color: var(--font-color-party);
+    border: 1px solid var(--font-color-party);
+    border-radius: 10px;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+}
+
+.party_join {
+    display: inline;
+    width: 5em;
+    background-color: var(--bg-color);
+    color: var(--font-color);
+    border-radius: 5px;
+    border: none;
+    scroll-behavior: smooth;
+    margin: 0.5em;
+}
+
+.party_join:hover {
+    background-color: var(--bg-color-secondary);
+    color: var(--font-color-secondary);
+}
+
+.party hr {
+    border: 1px solid var(--bg-color);
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+}
+
+.party_status {
+    min-width: 2em;
+}
+
+.party_id {
+    min-width: 2em;
+}
+
+.party_id:disabled,
+.party_status:disabled,
+.party_path:disabled {
+    background-color: #e0e0e000;
+    /* Couleur de fond grise */
+    color: var(--font-color-secondary);
+    /* Couleur de texte grise */
+    border: 2px solid #cccccc00;
+    /* Bordure grise */
+    cursor: crosshair;
+    /* Curseur "non autorisé" */
+}
+
+.hidden {
+    display: none;
+}
+
+
+/* Styles du formulaire */
+
+form {
+    background-color: var(--bg-color-secondary);
+    text-align: center;
+    border: 1px solid var(--font-color-secondary);
+    border-radius: 5px;
+    padding: 1em;
+}
+
+form input {
+    min-width: 25em;
+}
+
+
+/* Styles du menu de navigation */
+
+nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2em;
+    background-color: var(--bg-color-secondary);
+    height: 100%;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--font-color);
+    padding: 1em;
+    margin: 0.5em 0;
+    background-color: var(--bg-color);
+    border-radius: 0;
+    text-align: center;
+}
+
+nav a:hover {
+    background-color: var(--bg-color);
+    color: var(--font-color-secondary);
+}
+
+
+/* Sections principales */
+
+.container {
+    width: 65%;
+    background-color: var(--bg_color_ex1);
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}
+
+h2 {
+    color: var(--font-color);
+    text-align: center;
+}
