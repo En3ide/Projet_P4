@@ -6,12 +6,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $data = json_decode(file_get_contents("php://input"), true);
     if (!$data) {
         echo json_encode(["error" => 1,
-                        "error_message" => "Aucune donnée JSON reçue."]);
+                        "error_message" => "Aucune donnée JSON reçue."], JSON_PRETTY_PRINT);
         exit;
     }
     if (!isset($data['game_id']) || !isset($data['game_path']) || !isset($data['player'])) {
         echo json_encode(["error" => 1,
-                        "error_message" => "Paramètres manquants. Veuillez fournir 'game_id', 'game_path', et 'player'."]);
+                        "error_message" => "Paramètres manquants. Veuillez fournir 'game_id', 'game_path', et 'player'."], JSON_PRETTY_PRINT);
         exit;
     }
 
@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $reponse = $result->fetchArray(SQLITE3_ASSOC);
     if (!$reponse) {
         echo json_encode(["error" => 1,
-                        "error_message" => "Aucun jeu trouvé avec cet ID et chemin."]);
+                        "error_message" => "Aucun jeu trouvé avec cet ID et chemin."], JSON_PRETTY_PRINT);
         exit;
     }
 
@@ -51,17 +51,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         "player_turn" => $reponse["player_turn"],
         "last_move" => $reponse["last_move"],
         "private_key" => (($data["player"] === $reponse["player_turn"]) ? $reponse["private_key"]: "")
-    ]);
+    ], JSON_PRETTY_PRINT);
     } catch(Exception $e) {
         $db->exec('ROLLBACK');
         echo json_encode(["error" => 1,
-                        "error_message" => "Erreur lors de la requete vers la bdd !"]);
+                        "error_message" => "Erreur lors de la requete vers la bdd !"]
+                        , JSON_PRETTY_PRINT);
     }
     exit;
 
 } else {
     echo json_encode(["error" => 1,
-                    "error_message" => "Méthode non autorisée."]);
+                    "error_message" => "Méthode non autorisée."]
+                    , JSON_PRETTY_PRINT);
     exit;
 }
 ?>

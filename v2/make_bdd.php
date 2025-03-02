@@ -23,6 +23,7 @@ $db->exec($query);
 
 echo json_encode(["error" => 0,
                 "error_message" =>"",
-                "status" => "success"]);
+                "status" => "success"]
+                , JSON_PRETTY_PRINT);
 
 ?>

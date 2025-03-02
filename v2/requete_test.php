@@ -16,6 +16,5 @@ $request_data = [
     ]
 ];
 
-// Afficher en JSON formaté
 echo json_encode($request_data, JSON_PRETTY_PRINT);
 ?>

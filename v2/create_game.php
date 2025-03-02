@@ -9,7 +9,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if (!$data) {
         echo json_encode(["error" => 1,
-        "error_message" => "Pas d'entré json données."]);
+        "error_message" => "Pas d'entré json données."], JSON_PRETTY_PRINT);
         exit;
     }
 
@@ -23,7 +23,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
     if($error["error"] >= 1) {
-        echo json_encode($error);
+        echo json_encode($error, JSON_PRETTY_PRINT);
         exit;
     }
     $board = array_fill(0, 6, array_fill(0, 6, 0));
@@ -65,17 +65,20 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
                     "player2_path" => isset($data['player2_path']) ? $data['player2_path'] : "",
                     "player_turn" => 1,
                     "last_move" => "",
-                    "private_key" => $private_key]);
+                    "private_key" => $private_key],
+                    JSON_PRETTY_PRINT);
     } catch (Exception $e) {
         $db->exec('ROLLBACK');
         echo json_encode(["error" => 1,
-                        "error_message" => "Erreur lors de la création de la partie"]);
+                        "error_message" => "Erreur lors de la création de la partie"],
+                        JSON_PRETTY_PRINT);
     }
     exit;
 
 }else {
     echo json_encode(["error" => 1,
-                    "error_message" => "Méthode non autorisé"]);
+                    "error_message" => "Méthode non autorisé"],
+                    JSON_PRETTY_PRINT);
     exit;
 }
 ?>

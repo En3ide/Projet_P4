@@ -8,14 +8,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         echo json_encode([
             "error" => 1,
             "error_message" => "Aucune donnée JSON reçue."
-        ]);
+        ], JSON_PRETTY_PRINT);
         exit;
     }
     if (!isset($data['game_id']) || !isset($data['game_path'])) {
         echo json_encode([
             "error" => 1,
             "error_message" => "Paramètres manquants : game_id ou game_path."
-        ]);
+        ], JSON_PRETTY_PRINT);
         exit;
     }
     $game_id = $data['game_id'];
@@ -30,12 +30,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         echo json_encode([
             "error" => 0,
             "error_message" => ""
-        ]);
+        ], JSON_PRETTY_PRINT);
     } else {
         echo json_encode([
             "error" => 1,
             "error_message" => "Aucune partie trouvée avec les critères fournis."
-        ]);
+        ], JSON_PRETTY_PRINT);
     }
 
     $db->close();
@@ -43,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     echo json_encode([
         "error" => 1,
         "error_message" => "Méthode non autorisée. Utilisez POST."
-    ]);
+    ], JSON_PRETTY_PRINT);
     exit;
 }
 ?>
