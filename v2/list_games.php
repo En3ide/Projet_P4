@@ -171,7 +171,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
                 JSON_PRETTY_PRINT);
             exit;
         }
-        $objdb->exec('COMMIT');
+        $db->exec('COMMIT');
         $games = [];
         while ($reponse = $result->fetchArray(SQLITE3_ASSOC)) {
             $game = [

@@ -31,11 +31,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             "error" => 0,
             "error_message" => ""
         ], JSON_PRETTY_PRINT);
+        exit;
     } else {
         echo json_encode([
             "error" => 1,
             "error_message" => "Aucune partie trouvée avec les critères fournis."
         ], JSON_PRETTY_PRINT);
+        exit;
     }
 
     $db->close();

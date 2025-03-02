@@ -49,7 +49,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt->bindValue(':private_key', $private_key, SQLITE3_TEXT);
 
     $stmt->execute();
-    $objdb->exec('COMMIT');
+    $db->exec('COMMIT');
     echo json_encode(["error" => 0,
                     "error_message" => "",
                     "game_id" => $db->lastInsertRowID(),
@@ -70,7 +70,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     } catch (Exception $e) {
         $db->exec('ROLLBACK');
         echo json_encode(["error" => 1,
-                        "error_message" => "Erreur lors de la création de la partie"],
+                        "error_message" => "Erreur lors de la création de la partie, voici le message retour de ROLLBACK : ".$e->getMessage()],
                         JSON_PRETTY_PRINT);
     }
     exit;
