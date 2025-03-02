@@ -1,6 +1,7 @@
 <?php
 /* 
 join game
+
 "game_id": 123, 
   "game_path": "~jean_valjean/" 
   "player2": "Sam", 

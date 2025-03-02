@@ -33,7 +33,6 @@ $player2_path = "~sam_gamegie/SAE/";
 
 $response = send_game_data($api_url, $game_id, $game_path, $player2, $player2_role, $player2_path);
 
-// Afficher la réponse de l'API (par exemple, pour le débogage)
 echo $response;
 
 ?>
@@ -53,9 +52,6 @@ echo $response;
         <link rel="stylesheet" href="./style.css">
         </head>
     <body>
-        <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
         <h1 id="annonce" style="
             display: none;
             position: fixed;
@@ -73,126 +69,16 @@ echo $response;
         <h2 style="text-align: center;">Puissance 4</h2>
         <table id="grille" summary="Grille du puissance 4">
         <tbody>
-            <tr>
-                <td class="cellule-ronde" id="0-0"></td>
-                <td class="cellule-ronde" id="1-0"></td>
-                <td class="cellule-ronde" id="2-0"></td>
-                <td class="cellule-ronde" id="3-0"></td>
-                <td class="cellule-ronde" id="4-0"></td>
-                <td class="cellule-ronde" id="5-0"></td>
-                <!--<td class="cellule-ronde" id="6-0"></td>
-                <td class="cellule-ronde" id="7-0"></td>
-                <td class="cellule-ronde" id="8-0"></td>
-                <td class="cellule-ronde" id="9-0"></td>--->
-            </tr><!-- 1 -->
-            <tr>
-                <td class="cellule-ronde" id="0-1"></td>
-                <td class="cellule-ronde" id="1-1"></td>
-                <td class="cellule-ronde" id="2-1"></td>
-                <td class="cellule-ronde" id="3-1"></td>
-                <td class="cellule-ronde" id="4-1"></td>
-                <td class="cellule-ronde" id="5-1"></td>
-                <!--<td class="cellule-ronde" id="6-1"></td>
-                <td class="cellule-ronde" id="7-1"></td>
-                <td class="cellule-ronde" id="8-1"></td>
-                <td class="cellule-ronde" id="9-1"></td>-->
-            </tr><!-- 2 -->
-            <tr>
-                <td class="cellule-ronde" id="0-2"></td>
-                <td class="cellule-ronde" id="1-2"></td>
-                <td class="cellule-ronde" id="2-2"></td>
-                <td class="cellule-ronde" id="3-2"></td>
-                <td class="cellule-ronde" id="4-2"></td>
-                <td class="cellule-ronde" id="5-2"></td>
-                <!--<td class="cellule-ronde" id="6-2"></td>
-                <td class="cellule-ronde" id="7-2"></td>
-                <td class="cellule-ronde" id="8-2"></td>
-                <td class="cellule-ronde" id="9-2"></td>-->
-            </tr><!-- 3 -->
-            <tr>
-                <td class="cellule-ronde" id="0-3"></td>
-                <td class="cellule-ronde" id="1-3"></td>
-                <td class="cellule-ronde" id="2-3"></td>
-                <td class="cellule-ronde" id="3-3"></td>
-                <td class="cellule-ronde" id="4-3"></td>
-                <td class="cellule-ronde" id="5-3"></td>
-                <!--<td class="cellule-ronde" id="6-3"></td>
-                <td class="cellule-ronde" id="7-3"></td>
-                <td class="cellule-ronde" id="8-3"></td>
-                <td class="cellule-ronde" id="9-3"></td>-->
-            </tr><!-- 4 -->
-            <tr>
-                <td class="cellule-ronde" id="0-4"></td>
-                <td class="cellule-ronde" id="1-4"></td>
-                <td class="cellule-ronde" id="2-4"></td>
-                <td class="cellule-ronde" id="3-4"></td>
-                <td class="cellule-ronde" id="4-4"></td>
-                <td class="cellule-ronde" id="5-4"></td>
-                <!--<td class="cellule-ronde" id="6-4"></td>
-                <td class="cellule-ronde" id="7-4"></td>
-                <td class="cellule-ronde" id="8-4"></td>
-                <td class="cellule-ronde" id="9-4"></td>-->
-            </tr><!-- 5 -->
-            <tr>
-                <td class="cellule-ronde" id="0-5"></td>
-                <td class="cellule-ronde" id="1-5"></td>
-                <td class="cellule-ronde" id="2-5"></td>
-                <td class="cellule-ronde" id="3-5"></td>
-                <td class="cellule-ronde" id="4-5"></td>
-                <td class="cellule-ronde" id="5-5"></td>
-                <!--<td class="cellule-ronde" id="6-5"></td>
-                <td class="cellule-ronde" id="7-5"></td>
-                <td class="cellule-ronde" id="8-5"></td>
-                <td class="cellule-ronde" id="9-5"></td>-->
-            </tr><!-- 6 -->
-            <tr>
-                <td class="cellule-ronde" id="0-6"></td>
-                <td class="cellule-ronde" id="1-6"></td>
-                <td class="cellule-ronde" id="2-6"></td>
-                <td class="cellule-ronde" id="3-6"></td>
-                <td class="cellule-ronde" id="4-6"></td>
-                <td class="cellule-ronde" id="5-6"></td>
-                <!--<td class="cellule-ronde" id="6-6"></td>
-                <td class="cellule-ronde" id="7-6"></td>
-                <td class="cellule-ronde" id="8-6"></td>
-                <td class="cellule-ronde" id="9-6"></td>-->
-            </tr><!-- 7 -->
-            <!--<tr>
-                <td class="cellule-ronde" id="0-7"></td>
-                <td class="cellule-ronde" id="1-7"></td>
-                <td class="cellule-ronde" id="2-7"></td>
-                <td class="cellule-ronde" id="3-7"></td>
-                <td class="cellule-ronde" id="4-7"></td>
-                <td class="cellule-ronde" id="5-7"></td>
-                <td class="cellule-ronde" id="6-7"></td>
-                <td class="cellule-ronde" id="7-7"></td>
-                <td class="cellule-ronde" id="8-7"></td>
-                <td class="cellule-ronde" id="9-7"></td>
-            </tr> 8 -->
-            <!--<tr>
-                <td class="cellule-ronde" id="0-8"></td>
-                <td class="cellule-ronde" id="1-8"></td>
-                <td class="cellule-ronde" id="2-8"></td>
-                <td class="cellule-ronde" id="3-8"></td>
-                <td class="cellule-ronde" id="4-8"></td>
-                <td class="cellule-ronde" id="5-8"></td>
-                <td class="cellule-ronde" id="6-8"></td>
-                <td class="cellule-ronde" id="7-8"></td>
-                <td class="cellule-ronde" id="8-8"></td>
-                <td class="cellule-ronde" id="9-8"></td>
-            </tr> 9 -->
-            <!--<tr>
-                <td class="cellule-ronde" id="0-9"></td>
-                <td class="cellule-ronde" id="1-9"></td>
-                <td class="cellule-ronde" id="2-9"></td>
-                <td class="cellule-ronde" id="3-9"></td>
-                <td class="cellule-ronde" id="4-9"></td>
-                <td class="cellule-ronde" id="5-9"></td>
-                <td class="cellule-ronde" id="6-9"></td>
-                <td class="cellule-ronde" id="7-9"></td>
-                <td class="cellule-ronde" id="8-9"></td>
-                <td class="cellule-ronde" id="9-9"></td>
-            </tr> 10 -->
+            <?php
+                // générer la grille
+                for($i=0; $i<7; $i++) {
+                    echo "<tr>";
+                    for($j=0; $j<6; $j++) {
+                        echo "<td class='cellule-ronde' id='".$i."-".$j."'></td>";
+                    }
+                    echo "</tr>";
+                }
+            ?>
         </tbody>
         </table>
         <div style="display: flex; justify-content: center;">
@@ -215,8 +101,6 @@ echo $response;
                 console.log("Colonne cliquée :", rowIndex);
                 addToken(current_player, rowIndex);
             });
-
-            
 
             function addToken(player, column) {
                 fetch('./puissance4.php', {
